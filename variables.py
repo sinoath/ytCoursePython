@@ -25,3 +25,14 @@ print(variabile_bool)
 my_list = [1, 2, 3,]
 print(type(my_list))
 print(my_list)
+
+x = 30
+y = 10
+z = 50
+
+x += 2 * (y % z )
+print(x)
+eta = "25"
+
+result = pow(x, 3) % (int(eta) // 2)
+print(result)
