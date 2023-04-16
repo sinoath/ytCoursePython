@@ -58,7 +58,13 @@ class Employee:
 
 class Item:
     
+
     def __init__(self, name, price, quantity):
+        # Validate variable values passed to the constructor
+        assert price >= 0, f"Negative value: {price} < 0"
+        assert quantity >= 0, f"Negative value: {quantity} < 0"
+
+        # Defining values for the self object
         self.name = name
         self.price = price
         self.quantity = quantity
