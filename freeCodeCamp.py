@@ -5,14 +5,20 @@ class StoreManager:
 class Item:
     # class attibute
     pay_rate = 0.8 # apply a discount of 20%
+    all = []
     def __init__(self, name, price, quantity):
+
         # Validating data received for price and quantity
         assert price >= 0, f"Negative value: {price} must be a not negative number"
         assert quantity >= 0, f"Negative value: {quantity} must be a not negative number"
+
         # Data definition for Item objects
         self.name = name
         self.price = price
         self.quantity = quantity
+
+        # Actions executed upon instance creation
+        Item.all.append(self)
 
     def total_items_price(self):
         return self.price * self.quantity
@@ -22,13 +28,25 @@ class Item:
         # using self.pay_rate instead of Item.pay_rate allow to change it on a per item 
         # instance level, otherwise is hard coded as always be the class attribute
 
+    @classmethod
+    def instantiate_from_csv(cls):
+
+
+
+    # magic method to represent an instance with a formatted string
+    # this is a best practice according to python documentation
+    def __repr__(self):
+        return f"Item(\"{self.name}\", {self.price}, {self.quantity})"
+
 item1 = Item("Phone", 300, 1)
 item2 = Item("Laptop", 1000, 3)
 item3 = Item("Cable", 10, 5)
 item4 = Item("Mouse", 50, 5)
 item5 = Item("Keyboard", 75, 5)
 
-
+print(Item.all)
+# for instance in Item.all:
+#     print(instance.name, "\n\t", instance.price, "\t", instance.quantity)
 
 # print(f"{item1.name} full price is: {item1.price}")
 # item1.apply_discount()
