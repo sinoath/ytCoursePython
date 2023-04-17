@@ -38,9 +38,9 @@ class Item:
 
         for item in items:
             Item(
-                    name = item.get('name'),
-                    price = float(item.get("price")),
-                    quantity = int(item.get("quantity"))
+                name = item.get('name'),
+                price = float(item.get('price')),
+                quantity = int(item.get('quantity'))
             )
             print(f"Added Item: {item.get('name')}")
 
@@ -53,7 +53,7 @@ class Item:
 Item.instantiate_from_csv()
 for item in Item.all:
     print(item)
-# print(Item.all)
+# print(Item.all[3].name)
 # item1 = Item("Phone", 300, 1)
 # item2 = Item("Laptop", 1000, 3)
 # item3 = Item("Cable", 10, 5)
