@@ -1,3 +1,5 @@
+import csv
+
 class StoreManager:
     def __init__(self, name):
         self.name = name
@@ -6,7 +8,7 @@ class Item:
     # class attibute
     pay_rate = 0.8 # apply a discount of 20%
     all = []
-    def __init__(self, name, price, quantity):
+    def __init__(self, name, price:float, quantity:int):
 
         # Validating data received for price and quantity
         assert price >= 0, f"Negative value: {price} must be a not negative number"
@@ -30,21 +32,34 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls):
+        with open('./items.csv', 'r') as file:
+            reader = csv.DictReader(file)
+            items = list(reader)
 
-
+        for item in items:
+            Item(
+                    name = item.get('name'),
+                    price = float(item.get("price")),
+                    quantity = int(item.get("quantity"))
+            )
+            print(f"Added Item: {item.get('name')}")
 
     # magic method to represent an instance with a formatted string
     # this is a best practice according to python documentation
     def __repr__(self):
         return f"Item(\"{self.name}\", {self.price}, {self.quantity})"
 
-item1 = Item("Phone", 300, 1)
-item2 = Item("Laptop", 1000, 3)
-item3 = Item("Cable", 10, 5)
-item4 = Item("Mouse", 50, 5)
-item5 = Item("Keyboard", 75, 5)
 
-print(Item.all)
+Item.instantiate_from_csv()
+for item in Item.all:
+    print(item)
+# print(Item.all)
+# item1 = Item("Phone", 300, 1)
+# item2 = Item("Laptop", 1000, 3)
+# item3 = Item("Cable", 10, 5)
+# item4 = Item("Mouse", 50, 5)
+# item5 = Item("Keyboard", 75, 5)
+
 # for instance in Item.all:
 #     print(instance.name, "\n\t", instance.price, "\t", instance.quantity)
 
