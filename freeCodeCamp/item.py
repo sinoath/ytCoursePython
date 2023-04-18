@@ -15,7 +15,7 @@ class Item:
         assert quantity >= 0, f"Negative value: {quantity} must be a not negative number"
 
         # Data definition for Item objects
-        # __name make it private and readonly outside the class contructor
+        # __name make it private and readonly outside the class contructor/methods
         # _name works to but can still be changed using it as am attribute (Item._name)
         self.__name = name
         self.price = price
@@ -24,9 +24,20 @@ class Item:
         # Actions executed upon instance creation
         Item.all.append(self)
 
+    # using @property to make data as read only
+    # self.name prevent even the constructor to modify name value when creating a class instance
+    # self._name make the constructor able to modify name, but it can still be modified using Item._name
+    # self.__name make the constructor modify the name just when creating the instance, after that the name value
+    # act as a read only attribute and cannot be changed anymore
     @property
     def name(self):
-        return self.__name
+        return self.__name # getter
+
+    # to override the read only attribute due to @property, the following can be done
+    # this way name can be set using Item.name = 'something'
+    @name.setter
+    def name(self, value):
+        self.__name = value
 
     def total_items_price(self):
         return self.price * self.quantity

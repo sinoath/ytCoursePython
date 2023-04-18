@@ -2,7 +2,7 @@ from item import Item
 from phone import Phone
 
 item1 = Item("Laptop", 800, 5)
-item1.__name = "Desktop"
+item1.name = "Desktop"
 phone1 = Phone("Samsung", 600, 3)
 phone2 = Phone("Motorola", 600, 3)
 print(Item.all)
