@@ -49,8 +49,8 @@ class Item:
         # if an instance level pay_rate isn't found, the class level one will be used
 
     @classmethod
-    def instantiate_from_csv(cls):
-        with open('./items.csv', 'r') as file:
+    def instantiate_from_csv(cls, location:str):
+        with open(location, 'r') as file:
             reader = csv.DictReader(file)
             items = list(reader)
 

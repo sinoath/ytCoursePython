@@ -3,16 +3,19 @@ from item import Item
 from phone import Phone
 from laptop import Laptop
 
-laptop1 = Laptop("Asus", 800, 5, 1)
-laptop2 = Laptop("HP", 800, 5, 0)
+Item.instantiate_from_csv("./csv/items.csv")
+for item in Item.all:
+    print(item)
+# laptop1 = Laptop("Asus", 800, 5, 1)
+# laptop2 = Laptop("HP", 800, 5, 0)
 # item1.name = "Desktop"
 # phone1 = Phone("Samsung", 600, 3)
 # phone2 = Phone("Motorola", 600, 3)
-peripheral1 = Peripheral("Razor", 50, 8, 2)
-peripheral2 = Peripheral("Logitech", 35, 5, 1)
-peripheral3 = Peripheral("Steelseries", 45, 10, 0)
-print(Item.all)
-print(Peripheral.all)
+# peripheral1 = Peripheral("Razor", 50, 8, 2)
+# peripheral2 = Peripheral("Logitech", 35, 5, 1)
+# peripheral3 = Peripheral("Steelseries", 45, 10, 0)
+# print(Item.all)
+# print(Peripheral.all)
 # print(Phone.all)
 # print(Laptop.all)
 # print(Item.is_integer(4.0))
