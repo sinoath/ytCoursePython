@@ -16,7 +16,10 @@ class Laptop(Item):
         Laptop.all.append(self)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(\"{self.name}\", {self.price}, {self.quantity}, {self.has_numpad})"
+        if self.__has_numpad:
+            return f"{self.__class__.__name__}(\"{self.name}\", {self.price}, {self.quantity}, {self.has_numpad})"
+        else:
+            return Item.__repr__(self)
 
     @property
     def has_numpad(self):
