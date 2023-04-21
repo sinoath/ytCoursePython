@@ -11,8 +11,15 @@ class Laptop(Item):
         assert has_numpad >=0, f"Negative value: {has_numpad} has to be not negative"
 
         # specific child class variable definition
-        self.has_numpad = has_numpad
-
+        self.__has_numpad = has_numpad
         # creating an only phones list
         Laptop.all.append(self)
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(\"{self.name}\", {self.price}, {self.quantity}, {self.has_numpad})"
+
+    @property
+    def has_numpad(self):
+        return self.__has_numpad
+
 

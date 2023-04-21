@@ -2,7 +2,7 @@ from item import Item
 from phone import Phone
 from laptop import Laptop
 
-laptop1 = Laptop("Laptop", 800, 5)
+laptop1 = Laptop("Laptop", 800, 5,)
 # item1.name = "Desktop"
 phone1 = Phone("Samsung", 600, 3)
 phone2 = Phone("Motorola", 600, 3)
