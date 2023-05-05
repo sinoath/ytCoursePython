@@ -52,14 +52,23 @@ class Item:
     def instantiate_from_csv(cls, location:str):
         with open(location, 'r') as file:
             reader = csv.DictReader(file)
-            items = list(reader)
+            for row in reader:
+                Item(
+                        name=row['name'],
+                        price=float(row['price']),
+                        quantity=int(row['quantity'])
+                )
+            # items = list(reader)
 
-        for item in items:
-            Item(
-                name = item.get('name'),
-                price = float(item.get('price')),
-                quantity = int(item.get('quantity')),
-            )
+        # for item in reader:
+            # Item(
+            #         name = reader['name'],
+            #         price = float(reader['price']),
+            #         quantity = reader['quantity']
+                # name = item.get('name'),
+                # price = float(item.get('price')),
+                # quantity = int(item.get('quantity')),
+            # )
             # print(f"Added Item: {item.get('name')}")
 
 

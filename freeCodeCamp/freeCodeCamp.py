@@ -8,7 +8,7 @@ Item.instantiate_from_csv("./csv/items.csv")
 for item in Item.all:
     print(item)
 # laptop1 = Laptop("Asus", 800, 5, 1)
-# laptop2 = Laptop("HP", 800, 5, 0)
+# laptop2 = aptop("HP", 800, 5, 0)
 # item1.name = "Desktop"
 # phone1 = Phone("Samsung", 600, 3)
 # phone2 = Phone("Motorola", 600, 3)
