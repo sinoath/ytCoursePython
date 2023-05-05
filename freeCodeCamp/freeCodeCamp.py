@@ -4,6 +4,7 @@ from phone import Phone
 from laptop import Laptop
 
 Item.instantiate_from_csv("./csv/items.csv")
+# Item.all[2].price = 12.5
 for item in Item.all:
     print(item)
 # laptop1 = Laptop("Asus", 800, 5, 1)

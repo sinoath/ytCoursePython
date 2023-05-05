@@ -81,6 +81,9 @@ class Item:
     # magic method to represent an instance with a formatted string
     # this is a best practice according to python documentation
     def __repr__(self):
-        return f"{self.__class__.__name__}(\"{self.name}\", {self.price}, {self.quantity})"
+        if (self.price.is_integer()):
+            return f"{self.__class__.__name__}(\"{self.name}\", {self.price:.0f}, {self.quantity})"
+        else:
+            return f"{self.__class__.__name__}(\"{self.name}\", {self.price:.2f}, {self.quantity})"
 
 
